@@ -4,13 +4,13 @@ const app = express.Router();
 const productoController = require('./productoController');
 
 //TRAE TODOS LOS PRODUCTOS -> GET
-//app.get("/productos", productoController.getAllProducts );
+app.get("/productos", productoController.getAllProducts );
 //TRAE UN SOLO PRODUCTO -> GET -> ID Por paramentro.
-//app.get("/productos/:id", productoController.getOneProduct);
+app.get("/productos/:id", productoController.getOneProduct);
 //CREAR UN NUEVO PRODUCTOS
-//app.post("/productos/nuevo", productoController.createProduct)
+app.post("/productos/nuevo", productoController.createProduct)
 //MODIFICAR PRODUCTO
-//app.put("/productos/modificar/:id", productoController.updateProduct);
+app.put("/productos/modificar/:id", productoController.updateProduct);
 //ELIMINAR PRODUCTO
-//app.delete("/productos/eliminar/:id", productoController.deleteProduct);
+app.delete("/productos/eliminar/:id", productoController.deleteProduct);
 module.exports = app;
