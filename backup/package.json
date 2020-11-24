@@ -1,7 +1,7 @@
 {
   "name": "api-json",
   "version": "1.0.0",
-  "description": "",
+  "description": "API JSON Clase 6 NODEJS ADS",
   "main": "index.js",
   "scripts": {
     "dev": "nodemon index.js",

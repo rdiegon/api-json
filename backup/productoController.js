@@ -1,11 +1,20 @@
 //DATOS DE PROUDCTO
-let data = require("./productoModel");
+let data = [{ id: 1, nombre: "Heladera", precio: 50000, stock: 20 }];
 
-function getAllProducts(req, res) {
-  res.status(200).json(data);
+function getAllProducts(req, res){
+    res.status(200).json(data);
 }
 
-function getOneProduct(req, res) {
+module.exports = {
+    getAllProducts
+   
+  }
+
+
+
+/*
+//TRAE UN SOLO PRODUCTO -> GET -> ID Por paramentro.
+app.get("/productos/:id", function (req, res) {
   let producto = data.find(function (item) {
     return item.id === parseInt(req.params.id);
   });
@@ -15,9 +24,10 @@ function getOneProduct(req, res) {
   } else {
     res.status(404).json("No se encontró producto");
   }
-}
+});
 
-function createProduct(req, res) {
+//CREAR PRODUCTO -> POST -> POR BODY(id, nombre, precio, stock)
+app.post("/productos/nuevo", function (req, res) {
   let itemIds = data.map((item) => item.id);
   let nuevoId = itemIds.length > 0 ? Math.max.apply(Math, itemIds) + 1 : 1;
 
@@ -31,9 +41,10 @@ function createProduct(req, res) {
   data.push(nuevoProducto);
 
   res.status(201).json(nuevoProducto);
-}
+});
 
-function updateProduct(req, res) {
+//MODIFICAR PRODUCTO -> PUT -> POR BODY(nombre, precio, cantidad) -> POR PARAMETRO(id)
+app.put("/productos/modificar/:id", function (req, res) {
   let producto = data.find(function (item) {
     return item.id === parseInt(req.params.id);
   });
@@ -54,9 +65,10 @@ function updateProduct(req, res) {
   } else {
     res.status(404).json("No existe producto");
   }
-}
+});
 
-function deleteProduct(req, res) {
+//BORRAR PRODUCTO -> DELETE -> POR PARAMETRO(id)
+app.delete("/productos/eliminar/:id", function (req, res) {
   let producto = data.find(function (item) {
     return item.id === parseInt(req.params.id);
   });
@@ -70,29 +82,7 @@ function deleteProduct(req, res) {
   } else {
     res.status(404).json("No existe producto");
   }
-}
-module.exports = {
-  getAllProducts,
-  getOneProduct,
-  createProduct,
-  updateProduct,
-  deleteProduct
-};
-
-/*
-//TRAE UN SOLO PRODUCTO -> GET -> ID Por paramentro.
- 
-
-//CREAR PRODUCTO -> POST -> POR BODY(id, nombre, precio, stock)
- 
-
-//MODIFICAR PRODUCTO -> PUT -> POR BODY(nombre, precio, cantidad) -> POR PARAMETRO(id)
-
-});
-
-//BORRAR PRODUCTO -> DELETE -> POR PARAMETRO(id)
-app.delete("/productos/eliminar/:id", function (req, res) {
- 
 });
 
 */
+
